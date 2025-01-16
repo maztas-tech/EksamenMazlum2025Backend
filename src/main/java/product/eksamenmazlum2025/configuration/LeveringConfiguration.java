@@ -28,5 +28,17 @@ public class LeveringConfiguration {
         levering2.setForventetLevering(LocalDateTime.now());
 
         leveringRepository.save(levering2);
+
+        Levering levering3 = new Levering();
+        levering3.setAdresse("Hillerødvej 29");
+        levering3.setForventetLevering(LocalDateTime.now().plusMinutes(45));
+
+        leveringRepository.save(levering3);
+
+        Levering levering4 = new Levering();
+        levering4.setAdresse("Farumhovedgave 20");
+        levering4.setForventetLevering(LocalDateTime.now().plusMinutes(60));
+
+        leveringRepository.save(levering4);
     }
 }

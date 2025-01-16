@@ -32,5 +32,16 @@ public class PizzaConfiguration {
         pizza3.setPris(75);
 
         pizzaRepository.save(pizza3);
+
+        Pizza pizza4 = new Pizza();
+        pizza4.setTitel("Hawaii");
+        pizza4.setPris(65);
+
+        pizzaRepository.save(pizza4);
+
+        Pizza pizza5 = new Pizza();
+        pizza5.setTitel("Chicago");
+        pizza5.setPris(65);
+        pizzaRepository.save(pizza5);
     }
 }

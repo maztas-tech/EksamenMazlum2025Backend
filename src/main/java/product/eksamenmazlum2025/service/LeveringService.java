@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class LeveringService {
@@ -60,11 +62,22 @@ public class LeveringService {
                 .toList();
     }
 
-    public HttpStatus addDroneToLevering(int leveringID, int droneID) {
-        Optional<Drone> drone = droneRepository.findById(droneID);
+    public HttpStatus addDroneToLevering(int leveringID) {
+        //Find alle de droner, som indgår i en aktiv levering.
+        Set<Integer> occupiedDrones = leveringRepository.findAll().stream()
+                .filter(levering -> Objects.nonNull(levering.getDrone()) && Objects.isNull(levering.getFaktiskLevering()))
+                .map(levering -> levering.getDrone().getDroneID())
+                .collect(Collectors.toSet());
+        //Find alle registrerede droner som ikke indgår i aktiv levering og er i drift.
+        Optional<Drone> allocatedDrone = droneRepository.findAll()
+                .stream()
+                .filter(drone -> drone.getDriftstatus() == Driftstatus.I_DRIFT && !occupiedDrones.contains(drone.getDroneID()))
+                .findFirst();
+
         Optional<Levering> levering = leveringRepository.findById(leveringID);
 
-        if (drone.isPresent() && !Driftstatus.I_DRIFT.equals(drone.get().getDriftstatus())) {
+        if (!allocatedDrone.isPresent()) {
+            //TODO: throw custom no drones available exception.
             return HttpStatus.BAD_REQUEST;
         }
 
@@ -72,7 +85,7 @@ public class LeveringService {
             if (Objects.nonNull(levering.get().getDrone())) {
                 return HttpStatus.BAD_REQUEST;
             } else {
-                levering.get().setDrone(drone.isPresent() ? drone.get() : null);
+                levering.get().setDrone(allocatedDrone.get());
                 leveringRepository.save(levering.get());
                 return HttpStatus.OK;
             }

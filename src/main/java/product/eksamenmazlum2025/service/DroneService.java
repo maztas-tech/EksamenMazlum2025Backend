@@ -26,8 +26,13 @@ public class DroneService {
         return droneRepository.findAll();
     }
 
+    /*
+    Gemmer en drone, der generer en randomUUID
+    Dens driftstatus bliver sat til I_DRIFT
+     */
     public HttpStatus addDrone(Drone drone) {
         Station station = stationService.getStationLowestDrone();
+
         try {
             if (Objects.nonNull(station)) {
                 drone.setSerialUUID(UUID.randomUUID());
@@ -37,6 +42,7 @@ public class DroneService {
                 droneRepository.save(drone);
                 return HttpStatus.OK;
             }
+            //Kig på forskellige måder at håndtere exceptions på
         } catch (Exception e) {
             System.out.println("Oprettelse af drone fejlede: " + e.getMessage());
         }
@@ -67,7 +73,7 @@ public class DroneService {
 
         return HttpStatus.NOT_FOUND;
     }
-    
+
     public HttpStatus findDroneByIdRetire(int id) {
         Optional<Drone> drone = droneRepository.findById(id);
         if (drone.isPresent()) {

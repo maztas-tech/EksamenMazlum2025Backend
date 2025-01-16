@@ -9,6 +9,7 @@ import product.eksamenmazlum2025.service.DroneService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class DroneController {
 
@@ -39,4 +40,5 @@ public class DroneController {
     public HttpStatus retireDrone(@PathVariable int id) {
         return droneService.findDroneByIdRetire(id);
     }
+
 }

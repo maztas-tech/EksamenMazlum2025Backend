@@ -2,15 +2,13 @@ package product.eksamenmazlum2025.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import product.eksamenmazlum2025.model.Levering;
 import product.eksamenmazlum2025.service.LeveringService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class LeveringController {
 
@@ -32,9 +30,9 @@ public class LeveringController {
         return leveringService.addLevering(levering, pizzaID);
     }
 
-    @PostMapping("/deliveries/schedule/{leveringID}/{droneID}")
-    public HttpStatus addDroneToDelivery(@PathVariable int leveringID, @PathVariable int droneID) {
-        return leveringService.addDroneToLevering(leveringID, droneID);
+    @PostMapping("/deliveries/schedule/{leveringID}")
+    public HttpStatus addDroneToDelivery(@PathVariable int leveringID) {
+        return leveringService.addDroneToLevering(leveringID);
     }
 
     @PostMapping("/deliveries/finish/{leveringsID}")
