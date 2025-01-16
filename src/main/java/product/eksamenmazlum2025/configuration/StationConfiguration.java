@@ -31,4 +31,6 @@ public class StationConfiguration {
 
         stationRepository.save(station3);
     }
+
+
 }

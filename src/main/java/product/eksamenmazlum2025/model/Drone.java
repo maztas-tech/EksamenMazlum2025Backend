@@ -13,10 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Drone {
 
     @Id
@@ -41,6 +38,54 @@ public class Drone {
     @JsonManagedReference
     private List<Levering> leverings;
 
+    public Drone(int droneID, UUID serialUUID, Driftstatus driftstatus, Station station, List<Levering> leverings) {
+        this.droneID = droneID;
+        this.serialUUID = serialUUID;
+        this.driftstatus = driftstatus;
+        this.station = station;
+        this.leverings = leverings;
+    }
 
+    public Drone() {
+    }
 
+    public int getDroneID() {
+        return droneID;
+    }
+
+    public void setDroneID(int droneID) {
+        this.droneID = droneID;
+    }
+
+    public UUID getSerialUUID() {
+        return serialUUID;
+    }
+
+    public void setSerialUUID(UUID serialUUID) {
+        this.serialUUID = serialUUID;
+    }
+
+    public Driftstatus getDriftstatus() {
+        return driftstatus;
+    }
+
+    public void setDriftstatus(Driftstatus driftstatus) {
+        this.driftstatus = driftstatus;
+    }
+
+    public Station getStation() {
+        return station;
+    }
+
+    public void setStation(Station station) {
+        this.station = station;
+    }
+
+    public List<Levering> getLeverings() {
+        return leverings;
+    }
+
+    public void setLeverings(List<Levering> leverings) {
+        this.leverings = leverings;
+    }
 }

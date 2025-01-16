@@ -3,18 +3,10 @@ package product.eksamenmazlum2025.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Levering {
 
     @Id
@@ -35,9 +27,68 @@ public class Levering {
     private Drone drone;
 
     @ManyToOne
-    @JoinColumn(name = "pizzaFK")
+    @JoinColumn(name = "pizzaID")
     @JsonBackReference
     private Pizza pizza;
 
 
+    public Levering(int leveringID, String adresse, LocalDateTime forventetLevering, LocalDateTime faktiskLevering, Drone drone, Pizza pizza) {
+        this.leveringID = leveringID;
+        this.adresse = adresse;
+        this.forventetLevering = forventetLevering;
+        this.faktiskLevering = faktiskLevering;
+        this.drone = drone;
+        this.pizza = pizza;
+    }
+
+    public Levering() {
+    }
+
+    public int getLeveringID() {
+        return leveringID;
+    }
+
+    public void setLeveringID(int leveringID) {
+        this.leveringID = leveringID;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public LocalDateTime getForventetLevering() {
+        return forventetLevering;
+    }
+
+    public void setForventetLevering(LocalDateTime forventetLevering) {
+        this.forventetLevering = forventetLevering;
+    }
+
+    public LocalDateTime getFaktiskLevering() {
+        return faktiskLevering;
+    }
+
+    public void setFaktiskLevering(LocalDateTime faktiskLevering) {
+        this.faktiskLevering = faktiskLevering;
+    }
+
+    public Pizza getPizza() {
+        return pizza;
+    }
+
+    public void setPizza(Pizza pizza) {
+        this.pizza = pizza;
+    }
+
+    public Drone getDrone() {
+        return drone;
+    }
+
+    public void setDrone(Drone drone) {
+        this.drone = drone;
+    }
 }
