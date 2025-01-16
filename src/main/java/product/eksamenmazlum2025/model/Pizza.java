@@ -1,5 +1,6 @@
 package product.eksamenmazlum2025.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +28,7 @@ public class Pizza {
     //Relations
     @OneToMany(mappedBy = "pizza")
     @Column(nullable = false)
+    @JsonManagedReference
     private List<Levering> levering;
 
     public Pizza(int pizzaID, String titel, int pris, List<Levering> levering) {

@@ -1,6 +1,7 @@
 package product.eksamenmazlum2025.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,10 +31,12 @@ public class Levering {
     //Relations
     @ManyToOne
     @JoinColumn(name = "droneFK")
+    @JsonBackReference
     private Drone drone;
 
     @ManyToOne
     @JoinColumn(name = "pizzaFK")
+    @JsonBackReference
     private Pizza pizza;
 
 

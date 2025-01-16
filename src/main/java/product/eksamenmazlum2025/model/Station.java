@@ -1,5 +1,6 @@
 package product.eksamenmazlum2025.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 
@@ -23,6 +24,7 @@ public class Station {
     private String longitude;
 
     @OneToMany(mappedBy = "station")
+    @JsonManagedReference
     private List<Drone> droneList;
 
     public Station(int stationID, String latitude, String longitude, List<Drone> droneList) {
