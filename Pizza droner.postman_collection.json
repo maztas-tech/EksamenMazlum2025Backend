@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "b634eb9c-d73a-414d-b1da-efce1e0c2157",
+		"name": "Pizza droner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38057392"
+	},
+	"item": [
+		{
+			"name": "Post drones",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/drones/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Get drones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/drones"
+			},
+			"response": []
+		},
+		{
+			"name": "Enable drone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/drones/enable/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Disable drone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/drones/disable/2"
+			},
+			"response": []
+		},
+		{
+			"name": "RetireDrone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/drones/retire/2"
+			},
+			"response": []
+		},
+		{
+			"name": "addDelievered",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/deliveries/add/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Deliveries with no drones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/deliveries/queue"
+			},
+			"response": []
+		},
+		{
+			"name": "Deliveries WIth no drones",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/deliveries/schedule/1"
+			},
+			"response": []
+		},
+		{
+			"name": "DeliveryDone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8080/deliveries/finish/2"
+			},
+			"response": []
+		}
+	]
+}
