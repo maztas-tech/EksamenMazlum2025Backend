@@ -2,6 +2,7 @@ package product.eksamenmazlum2025.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -16,8 +17,10 @@ public class Levering {
     @Column(nullable = false)
     private String adresse;
 
+    @JsonFormat(pattern = "HH:mm")
     @Column(nullable = false)
     private LocalDateTime forventetLevering;
+    @JsonFormat(pattern = "HH:mm")
     private LocalDateTime faktiskLevering;
 
     //Relations

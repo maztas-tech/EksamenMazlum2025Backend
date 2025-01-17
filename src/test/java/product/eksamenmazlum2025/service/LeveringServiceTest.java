@@ -34,31 +34,35 @@ class LeveringServiceTest {
     private Drone drone;
     private Levering levering;
 
+    /*
+    Set up mock with init
+    Create drone instances and set their values
+    Create levering instances and set their values
+     */
     public void setUp() {
-        // Initialize mocks
         MockitoAnnotations.initMocks(this);
 
-        // Create a sample drone
         drone = new Drone();
         drone.setDroneID(1);
         drone.setDriftstatus(Driftstatus.I_DRIFT);
 
-        // Create a sample delivery (Levering)
         levering = new Levering();
         levering.setLeveringID(1);
         levering.setDrone(null);
     }
 
+    /*
+    Create a unit test to see if a drone can be created with no delivery instance
+    and use assertEquals with their result in HTTP status
+     */
+
     @Test
     @DisplayName("Add drone to delivery ")
     public void testAddDroneToLevering_DeliveryNotFound() {
-        // Mock the repository to return empty when looking for a delivery
         when(leveringRepository.findById(1)).thenReturn(Optional.empty());
 
-        // Call the method
         HttpStatus result = leveringService.addDroneToLevering(1);
 
-        // Assert the result is BAD_REQUEST because no delivery was found
         assertEquals(HttpStatus.BAD_REQUEST, result);
     }
 

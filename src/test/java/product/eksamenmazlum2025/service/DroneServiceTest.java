@@ -14,7 +14,7 @@ import product.eksamenmazlum2025.repository.DroneRepository;
 
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -40,18 +40,17 @@ class DroneServiceTest {
         drone.setDriftstatus(Driftstatus.I_DRIFT);
     }
 
-
-
+    /*
+    Create a unit test to see if a drone can be created with no station,
+    and use assertEquals with their result in HTTP status
+     */
     @Test
     @DisplayName("Drone cannot be added with no station")
     public void noStationAddDrone() {
-        // When the stationService is called, return null (no station)
         when(stationService.getStationLowestDrone()).thenReturn(null);
 
-        // Call the addDrone method
         HttpStatus result = droneService.addDrone(drone);
 
-        // Verify that the result is HttpStatus.BAD_REQUEST
         assertEquals(HttpStatus.BAD_REQUEST, result);
     }
 }
