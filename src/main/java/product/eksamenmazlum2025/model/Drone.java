@@ -14,10 +14,8 @@ public class Drone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int droneID;
+
     @Column(nullable = false)
-    /*
-    serialUUID.randomUUID(), kald på metoden så den generer en random værdi for dig.
-     */
     private UUID serialUUID;
     private Driftstatus driftstatus;
 
