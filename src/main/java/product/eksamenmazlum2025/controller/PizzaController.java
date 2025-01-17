@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import product.eksamenmazlum2025.model.Pizza;
-import product.eksamenmazlum2025.repository.PizzaRepository;
 import product.eksamenmazlum2025.service.PizzaService;
 
 import java.util.List;

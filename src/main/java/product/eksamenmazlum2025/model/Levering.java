@@ -47,6 +47,10 @@ public class Levering {
     public Levering() {
     }
 
+    public Levering(String adresse){
+        this.adresse = adresse;
+    }
+
     public int getLeveringID() {
         return leveringID;
     }

@@ -3,18 +3,9 @@ package product.eksamenmazlum2025.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-/*
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-
- */
 public class Station {
 
     @Id

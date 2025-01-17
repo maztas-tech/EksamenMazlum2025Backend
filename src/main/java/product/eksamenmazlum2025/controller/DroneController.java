@@ -2,7 +2,6 @@ package product.eksamenmazlum2025.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import product.eksamenmazlum2025.model.Drone;
 import product.eksamenmazlum2025.service.DroneService;

@@ -41,8 +41,10 @@ public class LeveringService {
         try {
             if (pizza.isPresent()) {
                 levering.setForventetLevering(LocalDateTime.now().plusMinutes(30));
-                levering.setAdresse("Farummidtpunkt 210 D");
                 levering.setPizza(pizza.get());
+                if (Objects.isNull(levering.getAdresse())) {
+                    levering.setAdresse("Kontakt kunden");
+                }
 
                 leveringRepository.save(levering);
 
@@ -77,11 +79,10 @@ public class LeveringService {
         Optional<Levering> levering = leveringRepository.findById(leveringID);
 
         if (!allocatedDrone.isPresent()) {
-            //TODO: throw custom no drones available exception.
             return HttpStatus.BAD_REQUEST;
         }
 
-        if(levering.isPresent()) {
+        if (levering.isPresent()) {
             if (Objects.nonNull(levering.get().getDrone())) {
                 return HttpStatus.BAD_REQUEST;
             } else {
@@ -100,7 +101,7 @@ public class LeveringService {
             levering.get().setFaktiskLevering(LocalDateTime.now());
             leveringRepository.save(levering.get());
             return HttpStatus.OK;
-        }else {
+        } else {
             return HttpStatus.BAD_REQUEST;
         }
     }

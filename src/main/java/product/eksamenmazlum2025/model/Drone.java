@@ -3,17 +3,12 @@ package product.eksamenmazlum2025.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import product.eksamenmazlum2025.model.enums.Driftstatus;
 
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-
 public class Drone {
 
     @Id
