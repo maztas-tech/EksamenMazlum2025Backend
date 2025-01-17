@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
 import product.eksamenmazlum2025.model.Drone;
 import product.eksamenmazlum2025.model.enums.Driftstatus;
-import product.eksamenmazlum2025.repository.DroneRepository;
 
 import java.util.UUID;
 
@@ -24,8 +23,6 @@ class DroneServiceTest {
     @Mock
     private StationService stationService;
 
-    @Mock
-    private DroneRepository droneRepository;
 
     @InjectMocks
     private DroneService droneService;

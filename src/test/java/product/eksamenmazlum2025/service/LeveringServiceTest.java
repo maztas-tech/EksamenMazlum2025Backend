@@ -11,12 +11,11 @@ import org.springframework.test.context.ActiveProfiles;
 import product.eksamenmazlum2025.model.Drone;
 import product.eksamenmazlum2025.model.Levering;
 import product.eksamenmazlum2025.model.enums.Driftstatus;
-import product.eksamenmazlum2025.repository.DroneRepository;
 import product.eksamenmazlum2025.repository.LeveringRepository;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -24,9 +23,6 @@ import static org.mockito.Mockito.when;
 class LeveringServiceTest {
     @Mock
     private LeveringRepository leveringRepository;
-
-    @Mock
-    private DroneRepository droneRepository;
 
     @InjectMocks
     private LeveringService leveringService;
