@@ -3,6 +3,7 @@ package product.eksamenmazlum2025.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -26,7 +27,7 @@ public class Levering {
     //Relations
     @ManyToOne
     @JoinColumn(name = "droneFK")
-    @JsonBackReference
+    @JsonManagedReference
     private Drone drone;
 
     @ManyToOne

@@ -28,7 +28,7 @@ public class Drone {
 
     @OneToMany(mappedBy = "drone")
     @Column(nullable = true)
-    @JsonManagedReference
+    @JsonBackReference
     private List<Levering> leverings;
 
     public Drone(int droneID, UUID serialUUID, Driftstatus driftstatus, Station station, List<Levering> leverings) {
