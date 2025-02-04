@@ -16,3 +16,12 @@ Dette repository indeholder backenden til **Drone Pizza**, en simpel full-stack 
 - **Maven** – Afhængighedsstyring
 
 
+## 📥 Test API med Postman
+For at teste API'et nemt, har jeg inkluderet en Postman collection i filen Pizza droner.postman_collection.json. 
+Du kan importere denne fil i Postman og trække og slippe API-kald for at teste endpoints uden at skulle skrive dem manuelt.
+
+🔹 Sådan importerer du Postman collection:
+- **Åbn Postman**
+- **Klik på Import**
+- **Vælg Pizza droner.postman_collection.json fra dette repository**
+- **Kør forespørgslerne direkte fra Postman 🎯**
